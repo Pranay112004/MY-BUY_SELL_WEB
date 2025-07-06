@@ -1,5 +1,8 @@
 import { create } from 'zustand';
 
+// Get the base URL for API calls
+const API_BASE_URL = import.meta.env.PROD ? '' : '';
+
 const useProductStore = create((set) => ({
   products: [],
   setProducts: (products) => set({ products }),
@@ -10,7 +13,7 @@ const useProductStore = create((set) => ({
     }
     
     try {
-      const res = await fetch("/api/products", {
+      const res = await fetch(`${API_BASE_URL}/api/products`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -31,7 +34,7 @@ const useProductStore = create((set) => ({
   
   fetchProducts: async () => {
     try {
-      const res = await fetch("/api/products");
+      const res = await fetch(`${API_BASE_URL}/api/products`);
       const data = await res.json();
       
       if (data.success) {
@@ -46,7 +49,7 @@ const useProductStore = create((set) => ({
   
   deleteProduct: async (pid) => {
     try {
-      const res = await fetch(`/api/products/${pid}`, {
+      const res = await fetch(`${API_BASE_URL}/api/products/${pid}`, {
         method: "DELETE",
       });
       const data = await res.json();
@@ -65,7 +68,7 @@ const useProductStore = create((set) => ({
   
   updateProduct: async (pid, updatedProduct) => {
     try {
-      const res = await fetch(`/api/products/${pid}`, {
+      const res = await fetch(`${API_BASE_URL}/api/products/${pid}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
