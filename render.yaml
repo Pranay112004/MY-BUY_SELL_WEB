@@ -2,12 +2,8 @@ services:
   - type: web
     name: mern-product-store
     env: node
-    buildCommand: npm ci && cd frontend && npm ci --include=dev && npm run build
+    buildCommand: npm run render-postbuild
     startCommand: npm start
     envVars:
       - key: NODE_ENV
         value: production
-      - key: MONGO_URI
-        fromDatabase:
-          name: mongodb-atlas
-          property: connectionString

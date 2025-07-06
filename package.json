@@ -6,7 +6,8 @@
     "dev": "nodemon backend/server.js",
     "start": "node backend/server.js",
     "build": "npm install && cd frontend && npm install && npm run build",
-    "render-postbuild": "cd frontend && npm ci --include=dev && npm run build"
+    "render-postbuild": "npm run build:frontend",
+    "build:frontend": "cd frontend && npm install && npm run build"
   },
   "type": "module",
   "engines": {
