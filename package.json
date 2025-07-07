@@ -6,7 +6,7 @@
     "dev": "nodemon backend/server.js",
     "start": "node backend/server.js",
     "build": "npm install && cd frontend && npm install && npm run build",
-    "render-postbuild": "npm run build:frontend",
+    "render-postbuild": "npm run build",
     "railway-build": "npm run build:frontend",
     "build:frontend": "cd frontend && npm install && npm run build"
   },
