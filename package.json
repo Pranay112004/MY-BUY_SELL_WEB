@@ -6,9 +6,11 @@
     "dev": "nodemon backend/server.js",
     "start": "node backend/server.js",
     "build": "npm install && cd frontend && npm install && npm run build",
+    "build:frontend": "cd frontend && npm install && npm run build",
     "render-postbuild": "npm run build",
-    "railway-build": "npm run build:frontend",
-    "build:frontend": "cd frontend && npm install && npm run build"
+    "install:client": "cd frontend && npm install",
+    "install:server": "npm install",
+    "install:both": "npm run install:server && npm run install:client"
   },
   "type": "module",
   "engines": {
